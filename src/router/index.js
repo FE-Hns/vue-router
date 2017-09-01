@@ -8,6 +8,12 @@ const Home = resolve => require(['../components/Home.vue'], resolve);
 const Child1 = resolve => require(['../components/Child1.vue'], resolve);
 const Child2 = resolve => require(['../components/Child2.vue'], resolve);
 const Child3 = resolve => require(['../components/Child3.vue'], resolve);
+
+
+// 懒加载组件
+const MyHeader = resolve => require(['../components/MyHeader.vue'], resolve);
+const Main = resolve => require(['../components/Main.vue'], resolve);
+const SiderBar = resolve => require(['../components/Sider.vue'], resolve);
 Vue.use(Router)
 
 export default new Router({
@@ -43,7 +49,7 @@ export default new Router({
     ]*/
     // 嵌套路由部分，所谓嵌套路由，就是路由中有路由
     // linkActiveClass:'active',
-    routes: [
+    /*routes: [
         {
           path:'',
           name:'',
@@ -70,5 +76,32 @@ export default new Router({
             },
           ]
         }
-    ]
+    ]*/
+    // 命名式路由，给路由起一个名字，我们一直都在这么写，只是忽略了该怎么使用它，其实用法很简单
+    // 之前我们router-link传递的参数是path，这一次我们传递一个name就好了。
+    // 之所以要改写是因为，我想传递一个params，这就需要动态路由的写法了
+    /*routes:[
+      {
+        path:'',
+        component:Hello
+      },
+      // {
+      //   path:'/home',
+      //   component:Home
+      // },
+      {
+        path:'/home/:userId?',
+        name:'home',
+        component:Home
+      }
+    ]*/
+    // 命名视图
+    routes: [{
+        path: '/',
+        components: {
+            default: MyHeader,
+            siderBar:SiderBar,
+            main:Main
+        }
+    }]
 })
