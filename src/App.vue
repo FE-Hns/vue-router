@@ -23,9 +23,12 @@
         <pre>{{ JSON.stringify($route, null, 4) }}</pre> -->
     <!-- 嵌套路由部分 -->
     <!-- <router-view></router-view> -->
+    <!-- 命名路由部分
     <router-view class="view one"></router-view>
     <router-view class="view two" name="main"></router-view>
-    <router-view class="view three" name="siderBar"></router-view>
+    <router-view class="view three" name="siderBar"></router-view> -->
+    <!-- 稍微复杂一些的命名式路由 -->
+    <router-view></router-view>
   </div>
 </template>
 

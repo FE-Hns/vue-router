@@ -14,6 +14,12 @@ const Child3 = resolve => require(['../components/Child3.vue'], resolve);
 const MyHeader = resolve => require(['../components/MyHeader.vue'], resolve);
 const Main = resolve => require(['../components/Main.vue'], resolve);
 const SiderBar = resolve => require(['../components/Sider.vue'], resolve);
+// 懒加载组件
+const Father = resolve => require(['../components/Father.vue'],resolve);
+const A = resolve => require(['../components/A.vue'],resolve);
+const B = resolve => require(['../components/B.vue'],resolve);
+const C = resolve => require(['../components/C.vue'],resolve);
+const D = resolve => require(['../components/D.vue'],resolve);
 Vue.use(Router)
 
 export default new Router({
@@ -96,12 +102,30 @@ export default new Router({
       }
     ]*/
     // 命名视图
-    routes: [{
+    /*routes: [{
         path: '/',
         components: {
             default: MyHeader,
             siderBar:SiderBar,
             main:Main
         }
-    }]
+    }]*/
+    /*routes:[
+      {
+        path:'/',
+        component:Father,
+        children:[
+          {
+            path:'',
+            components:{
+              a:A,
+              b:B,
+              c:C,
+              d:D
+            }
+          }
+        ]
+      }
+    ]*/
+    // 重定向和别名
 })
