@@ -20,6 +20,8 @@ const A = resolve => require(['../components/A.vue'],resolve);
 const B = resolve => require(['../components/B.vue'],resolve);
 const C = resolve => require(['../components/C.vue'],resolve);
 const D = resolve => require(['../components/D.vue'],resolve);
+
+const Nav = resolve=> require(['../components/Nav.vue',resolve]);
 Vue.use(Router)
 
 export default new Router({
@@ -128,4 +130,24 @@ export default new Router({
       }
     ]*/
     // 重定向和别名
+    routes:[
+      {
+        path:'/a',
+        component:A
+      },
+      {
+        path:'/b',
+        component:B
+      },
+      {
+        path:'/c',
+        component:C
+      },
+      // 让d转到a
+      {
+        path:'/d',
+        component:D,
+        redirect:'/a'
+      },
+    ]
 })

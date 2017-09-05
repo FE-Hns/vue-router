@@ -28,11 +28,19 @@
     <router-view class="view two" name="main"></router-view>
     <router-view class="view three" name="siderBar"></router-view> -->
     <!-- 稍微复杂一些的命名式路由 -->
+    <!-- <router-view></router-view> -->
+    <!-- 重定向和别名 -->
+    <router-link to="/a">/a</router-link>
+    <router-link to="/b">/b</router-link>
+    <router-link to="/c">/c</router-link>
+    <router-link to="/d">/d</router-link>
+    <button @click="go">go</button>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
+import router from "./router/index"
 export default {
   name: 'app',
   watch: {
@@ -40,6 +48,15 @@ export default {
     //   console.log(to);
     //   console.log(form)
     // }
+  },
+  methods:{
+    go:function () {
+      router.replace('/b',function(){
+        console.log('ok!')
+      },function () {
+        console.log('no!')
+      })
+    }
   }
 }
 </script>
