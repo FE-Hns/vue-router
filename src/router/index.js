@@ -22,6 +22,11 @@ const C = resolve => require(['../components/C.vue'],resolve);
 const D = resolve => require(['../components/D.vue'],resolve);
 
 const Nav = resolve=> require(['../components/Nav.vue',resolve]);
+const Com404 = resolve=> require(['../components/404.vue'],resolve);
+// import A from '../components/A.vue'
+// import B from '../components/B.vue'
+// import C from '../components/C.vue'
+// import D from '../components/D.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -149,5 +154,9 @@ export default new Router({
         component:D,
         redirect:'/a'
       },
+      {
+        path:'/404',
+        component:Com404,
+      }
     ]
 })
