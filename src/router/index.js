@@ -146,7 +146,13 @@ export default new Router({
       },
       {
         path:'/c',
-        component:C
+        component:C,
+        // beforeEnter: (to, from, next) => {
+        //   // ...
+        //   console.log(from)
+        //   console.log(to)
+        //   next()
+        // },
       },
       // 让d转到a
       {
