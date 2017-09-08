@@ -138,11 +138,17 @@ export default new Router({
     routes:[
       {
         path:'/a',
-        component:A
+        component:A,
+        meta:{
+          requireAuth:true
+        },
       },
       {
         path:'/b',
-        component:B
+        component:B,
+        meta:{
+          requireAuth:true
+        },
       },
       {
         path:'/c',
@@ -153,6 +159,9 @@ export default new Router({
         //   console.log(to)
         //   next()
         // },
+        meta:{
+          requireAuth:true
+        },
       },
       // 让d转到a
       {

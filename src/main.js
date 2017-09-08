@@ -35,6 +35,18 @@ Vue.config.productionTip = false
 //   console.log(from)
 //   console.log(to)
 // })
+router.beforeEach((to, from, next) => {
+  // to and from are both route objects
+  if (to.matched.some(record => record.meta.requireAuth)) {
+    if (to.fullPath==="/c") {
+      next('/404')
+    }else{
+      next();
+    }
+  }else {
+    next()
+  }
+})
 new Vue({
   el: '#app',
   router,
