@@ -15,18 +15,25 @@ const MyHeader = resolve => require(['../components/MyHeader.vue'], resolve);
 const Main = resolve => require(['../components/Main.vue'], resolve);
 const SiderBar = resolve => require(['../components/Sider.vue'], resolve);
 // 懒加载组件
-const Father = resolve => require(['../components/Father.vue'],resolve);
-const A = resolve => require(['../components/A.vue'],resolve);
-const B = resolve => require(['../components/B.vue'],resolve);
-const C = resolve => require(['../components/C.vue'],resolve);
-const D = resolve => require(['../components/D.vue'],resolve);
+const Father = resolve => require(['../components/Father.vue'], resolve);
+const A = resolve => require(['../components/A.vue'], resolve);
+const B = resolve => require(['../components/B.vue'], resolve);
+const C = resolve => require(['../components/C.vue'], resolve);
+const D = resolve => require(['../components/D.vue'], resolve);
 
-const Nav = resolve=> require(['../components/Nav.vue',resolve]);
-const Com404 = resolve=> require(['../components/404.vue'],resolve);
+const Nav = resolve => require(['../components/Nav.vue', resolve]);
+const Com404 = resolve => require(['../components/404.vue'], resolve);
 // import A from '../components/A.vue'
 // import B from '../components/B.vue'
 // import C from '../components/C.vue'
 // import D from '../components/D.vue'
+
+
+const XHome = resolve => require(['../components/X-home.vue'], resolve);
+const XParent = resolve => require(['../components/X-parent.vue'], resolve);
+const XDefault = resolve => require(['../components/X-default.vue'], resolve);
+const XFoo = resolve => require(['../components/X-foo.vue'], resolve);
+const XBar = resolve => require(['../components/X-bar.vue'], resolve);
 Vue.use(Router)
 
 export default new Router({
@@ -135,7 +142,7 @@ export default new Router({
       }
     ]*/
     // 重定向和别名
-    routes:[
+    /*routes:[
       {
         path:'/a',
         component:A,
@@ -173,5 +180,28 @@ export default new Router({
         path:'/404',
         component:Com404,
       }
+    ]*/
+    mode: 'history',
+    routes: [{
+            path: '/',
+            component: XHome
+        },
+        {
+            path: '/parent',
+            component: XParent,
+            children: [{
+                    path: '',
+                    component: XDefault
+                },
+                {
+                    path: 'foo',
+                    component: XFoo
+                },
+                {
+                    path: 'bar',
+                    component: XBar
+                },
+            ]
+        }
     ]
 })
