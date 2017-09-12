@@ -1,6 +1,7 @@
 <template>
     <div>
         这里是parent页
+        <!-- 绑定一个变量transitionName -->
         <transition :name="transitionName" mode="out-in">
             <router-view></router-view>
         </transition>
@@ -17,6 +18,7 @@ export default {
         '$route': function(to, from) {
             console.log(to);
             console.log(from)
+            // 核心判断
             const toDepth = to.path.split('/').length
             const fromDepth = from.path.split('/').length
             this.transitionName = toDepth < fromDepth ? 'slide-left' : 'slide-right'
