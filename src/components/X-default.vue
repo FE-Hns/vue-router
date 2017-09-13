@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="default">
         这里是default页
     </div>
 </template>
@@ -9,7 +9,10 @@ export default {
 }
 </script>
 <style lang="less">
-
+#default {
+    height: 1000px;
+    background: yellow;
+}
 </style>
 
 

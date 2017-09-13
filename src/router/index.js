@@ -191,11 +191,14 @@ export default new Router({
             component: XParent,
             children: [{
                     path: '',
-                    component: XDefault
+                    component: XDefault,
                 },
                 {
                     path: 'foo',
-                    component: XFoo
+                    component: XFoo,
+                    meta: {
+                        scrollTop: true
+                    }
                 },
                 {
                     path: 'bar',
@@ -203,5 +206,29 @@ export default new Router({
                 },
             ]
         }
-    ]
+    ],
+    scrollBehavior(to, from, savedPosition) {
+      // 这个功能必须开启history模式，不然无效
+        // 我们发现这个savedPosition，储存着页面刚才滚动条的位置信息
+        // console.log(savedPosition)
+        // 不管三七二十一全部让他滚到300的位置
+        return {
+          x:0,
+          y:300
+        }
+        // if (savedPosition) {
+        //     return savedPosition
+        // } else {
+        //     const position = {}
+        //     if (to.hash) {
+        //         position.selector = to.hash;
+        //     }
+        //     if (to.matched.some(m => m.meta.scrollTop)) {
+        //         position.x = 0;
+        //         position.y = 300
+        //     }
+        //     return position;
+        // }
+        
+    }
 })

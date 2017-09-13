@@ -17,7 +17,7 @@ export default {
     watch: {
         '$route': function(to, from) {
             console.log(to);
-            console.log(from)
+            // console.log(from)
             // 核心判断
             const toDepth = to.path.split('/').length
             const fromDepth = from.path.split('/').length
