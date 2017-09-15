@@ -181,6 +181,7 @@ export default new Router({
         component:Com404,
       }
     ]*/
+    linkActiveClass:'active',
     mode: 'history',
     routes: [{
             path: '/',

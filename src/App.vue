@@ -112,5 +112,7 @@ export default {
 .fade-leave-active {
   transition: opacity 0.5s;
 }
-
+.active {
+  color:orangered;
+}
 </style>
